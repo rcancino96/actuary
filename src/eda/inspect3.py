@@ -1,5 +1,5 @@
 import pandas as pd, numpy as np
-D='/home/claude/hack/data/raw/public/'
+from pathlib import Path; D=str(Path(__file__).resolve().parents[2]/'data/raw/public')+'/'
 pd.set_option('display.width',250); pd.set_option('display.max_columns',60)
 r=lambda f: pd.read_parquet(D+f+'.parquet')
 for L in ['motor','buildings','contents']:

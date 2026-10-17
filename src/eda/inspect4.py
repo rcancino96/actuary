@@ -1,5 +1,5 @@
 import pandas as pd, numpy as np
-D='/home/claude/hack/data/raw/public/'
+from pathlib import Path; D=str(Path(__file__).resolve().parents[2]/'data/raw/public')+'/'
 r=lambda f: pd.read_parquet(D+f+'.parquet')
 p=r('policies_motor'); p['ps']=pd.to_datetime(p.period_start); p['pe']=pd.to_datetime(p.period_end)
 p['days']=(p.pe-p.ps).dt.days+1

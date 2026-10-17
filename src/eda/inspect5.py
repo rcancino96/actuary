@@ -1,5 +1,5 @@
 import pandas as pd, numpy as np
-D='/home/claude/hack/data/raw/public/'
+from pathlib import Path; D=str(Path(__file__).resolve().parents[2]/'data/raw/public')+'/'
 pd.set_option('display.width',250)
 r=lambda f: pd.read_parquet(D+f+'.parquet')
 c=r('claims'); c['ld']=pd.to_datetime(c.loss_date,errors='coerce'); c['rd']=pd.to_datetime(c.report_date,errors='coerce')
